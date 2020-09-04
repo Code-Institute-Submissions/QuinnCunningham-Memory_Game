@@ -14,12 +14,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col blue"></div>
-        <div class="col red"></div>
+        <div class="col blue " id="blue_click"></div>
+        <div class="col red" id="red_click"></div>
     </div>
     <div class="row">
-        <div class="col green"></div>
-        <div class="col purple"></div>
+        <div class="col green" id="green_click"></div>
+        <div class="col purple" id="purple_click"></div>
     </div>
 </div>
 
@@ -27,7 +27,16 @@
 var colors_array = ["blue","red","purple","green"]
 var random_color = colors_array[Math.floor(Math.random() * colors_array.length)]
 
+
 document.getElementById("color").innerHTML = random_color;
+document.getElementById("answer1").innerHTML = answer;
+
+document.getElementById("blue_click").addEventListener("click", function(){alert("Hello World!");});
+document.getElementById("red_click").addEventListener("click", function(){alert("Hello World!");});
+document.getElementById("green_click").addEventListener("click", function(){alert("Hello World!");});
+document.getElementById("purple_click").addEventListener("click", function(){alert("Hello World!");});
+
+
 </script>
 </body>
 </html>
