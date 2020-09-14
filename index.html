@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Color Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" typle="js" href="index.js">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -12,30 +11,77 @@
 <h1>Click what the word below says.</h1>
 <h2>The random color is: <span  id = "color" ></span></h2>
 
+<div class="score_css">
+    <p>Score: <span id= "score_show"></span> </p>
+</div> 
+
+<div>
+    <button class="start_button_css" id="start">Start</button>
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col blue " id="blue_click"></div>
-        <div class="col red" id="red_click"></div>
+        <button class="blue" id = "blue_click">blue</button>
+        <button class="red" id = "red_click">red</button>
     </div>
     <div class="row">
-        <div class="col green" id="green_click"></div>
-        <div class="col purple" id="purple_click"></div>
+        <button class="purple" id = "purple_click">purple</button>
+        <button class="green" id = "green_click">green</button>
     </div>
 </div>
 
 <script>
 var colors_array = ["blue","red","purple","green"]
 var random_color = colors_array[Math.floor(Math.random() * colors_array.length)]
+var score = 0 
 
-
+document.getElementById("score_show").innerHTML = score;
 document.getElementById("color").innerHTML = random_color;
-document.getElementById("answer1").innerHTML = answer;
 
-document.getElementById("blue_click").addEventListener("click", function(){alert("Hello World!");});
-document.getElementById("red_click").addEventListener("click", function(){alert("Hello World!");});
-document.getElementById("green_click").addEventListener("click", function(){alert("Hello World!");});
-document.getElementById("purple_click").addEventListener("click", function(){alert("Hello World!");});
+document.getElementById("start").onclick = function(){
+    
+}
 
+
+
+
+window.onload = function(){
+    document.getElementById("blue_click").onclick = function(){
+        if (random_color === "blue") {
+            alert("hello");
+            score = score + 1;
+        }else {
+            alert("no");
+        }
+    }
+
+    document.getElementById("red_click").onclick = function(){
+        if (random_color === "red") {
+            alert("hello");
+        }else{
+            alert("no");
+        }
+    }
+
+    document.getElementById("purple_click").onclick = function(){
+        if (random_color === "purple"){
+            alert("hello");
+        }else {
+            alert("no");
+        }
+    }
+
+    document.getElementById("green_click").onclick = function(){
+        if (random_color === "green"){
+            alert("hello");
+        }else {
+            alert("no");
+        }
+    }
+
+
+
+}
 
 </script>
 </body>
