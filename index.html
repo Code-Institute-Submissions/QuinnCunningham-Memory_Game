@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Color Game</title>
+    <title>Color Clicker Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
 </head>
@@ -11,12 +11,9 @@
 <h1>Click what the word below says.</h1>
 <h2>The random color is: <span  id = "color" ></span></h2>
 
-<div class="score_css">
-    <p>Score: <span id= "score_show"></span> </p>
-</div> 
-
 <div>
     <button class="start_button_css" id="start">Start</button>
+    <div class = "countdown_css" id = "countdown_div"></div>
 </div>
 
 <div class="container">
@@ -33,49 +30,69 @@
 <script>
 var colors_array = ["blue","red","purple","green"]
 var random_color = colors_array[Math.floor(Math.random() * colors_array.length)]
-var score = 0 
 
-document.getElementById("score_show").innerHTML = score;
+
 document.getElementById("color").innerHTML = random_color;
 
-document.getElementById("start").onclick = function(){
-    
+
+
+
+function timer_game (){
+    var random_color = colors_array[Math.floor(Math.random() * colors_array.length)];
+    document.getElementById("color").innerHTML = random_color;;
 }
 
+
+document.getElementById("start").onclick = function(){
+    var countdown_left = 30;
+    var countdownDiv = document.getElementById("countdown_div");
+    var countdownId = setInterval(countdown , 1000);
+
+    function countdown(){
+        if (countdown_left == -1){
+            clearTimeout(countdownId);
+            timer_game()
+            
+
+        } else {
+            countdownDiv.innerHTML = countdown_left + "seconds remaining";
+            countdown_left--;
+        }
+    }
+}
 
 
 
 window.onload = function(){
     document.getElementById("blue_click").onclick = function(){
         if (random_color === "blue") {
-            alert("hello");
-            score = score + 1;
+            alert("Correct");
         }else {
-            alert("no");
+            alert("Wrong");
         }
     }
 
     document.getElementById("red_click").onclick = function(){
         if (random_color === "red") {
-            alert("hello");
+            alert("Correct");
         }else{
-            alert("no");
+            alert("Wrong");
         }
     }
 
     document.getElementById("purple_click").onclick = function(){
         if (random_color === "purple"){
-            alert("hello");
+            alert("Correct");
         }else {
-            alert("no");
+            alert("Wrong");
         }
     }
 
     document.getElementById("green_click").onclick = function(){
         if (random_color === "green"){
-            alert("hello");
+            alert("Correct");
         }else {
-            alert("no");
+            alert("Wrong");
         }
     }
 
